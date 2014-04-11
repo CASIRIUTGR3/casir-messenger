@@ -4,7 +4,7 @@ from django.shortcuts import render
 def index(request):
     
     context = {
-               "example_attribute": "Hello, world",
+               "message": "Page d'accueil",
                }
     
     return render(request, "promotion/index.html", context)
