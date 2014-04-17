@@ -4,5 +4,9 @@
 {% block title %}{{ bloc.super }}{% endblock title %}
 
 {% block content %}
-{{ message }}
+<form action = "." method = "POST" >
+{% csrf_token %}
+{{ form_auth.as_p }}
+<input type="submit" />
+</form>
 {% endblock content %}
