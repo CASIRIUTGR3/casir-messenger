@@ -9,14 +9,23 @@ def index(request):
         # ContactForm was defined in the the previous section
         print request.POST
         form = AuthenticationForm(data=request.POST) # A form bound to the POST data
+        form2 = UserCreateForm(data=request.POST) # A form bound to the POST data
         
         if form.is_valid(): # All validation rules pass
             # Process the data in form.cleaned_data
             # ...
             return HttpResponseRedirect('/thanks/') # Redirect after POST
+        
+        
+        if form2.is_valid(): # All validation rules pass
+            # Process the data in form.cleaned_data
+            # ...
+            return HttpResponseRedirect('/thanks/') # Redirect after POST
     else:
-        form = AuthenticationForm() # An unbound form
+       form = AuthenticationForm() # An unbound form
+       form2 = UserCreateForm() # An unbound form
 
     return render(request, 'promotion/index.html', {
         'form_auth': form,
+        'form_rec': form2,
     })

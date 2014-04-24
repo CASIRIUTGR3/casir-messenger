@@ -4,9 +4,27 @@
 {% block title %}{{ bloc.super }}{% endblock title %}
 
 {% block content %}
-<form action = "." method = "POST" >
-{% csrf_token %}
-{{ form_auth.as_p }}
-<input type="submit" />
-</form>
+<div class="jumbotron" style ="width:50% ; text-align: left; float: left">
+	<h1>Bienvenue sur CASIR Messenger</h1>
+	<h2>CASIR Messenger la messagerie éphémère !</h2>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+</div>
+
+<div id="formulaire" style="text-align:right; margin-right: 5% ">
+	<h1>Connexion</h1>
+	<form action = "." method = "POST">
+		{% csrf_token %}
+		{{ form_auth.as_p }}
+		<input type="submit" name="connexion"/>
+	</form>
+	
+	<br />	
+	<h1>Inscription</h1>
+	<form action = "." method = "POST">
+		{% csrf_token %}
+		{{ form_rec.as_p }}
+		<input type="submit" name="inscription"/>
+		</form>
+</div>
 {% endblock content %}
